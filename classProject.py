@@ -2,6 +2,19 @@
 import random
 from random import choice
 import time
+from turtle import *
+
+def attempt():
+    color('red', 'yellow')
+    begin_fill()
+    while True:
+        forward(200)
+        left(170)
+        if abs(pos()) < 1:
+            break
+    end_fill()
+    done()
+
 
 material = ['SAND', 'DUST', 'LEAVES', 'PAPER', 'TIN', 'ROOTS', 'BRICK', 'STONE', 'DISCARDED CLOTHING', 'GLASS', 'STEEL', 'PLASTIC', 'MUD', 'BROKEN DISHES', 'WOOD', 'STRAW', 'WEEDS']
 
@@ -77,16 +90,19 @@ chance = [
 
 Number = random.randint(0,100)
 print('>>  ' + str(Number))
-if Number > 0 and Number < 89:
+if Number > 0 and Number < 80:
     print('')
     print('A HOUSE OF ' + random.choice(material))
     print('      ' + random.choice(location))
     print('            USING ' + random.choice(light_source))
     print('                  INHABITED BY ' + random.choice(inhabitants))
     print('')
-elif Number > 89:
+elif Number > 79 and Number < 95:
     string = random.choice(chance)
     for char in string:
         print(char, end='')
         time.sleep(.03)
+elif Number > 94:
+    attempt()
+
 
